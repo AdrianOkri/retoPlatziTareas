@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App Tareas</title>
+    <!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class = "container text-center"> <!-- Componente de VueJS-->
+        <div id="app">
+            <div class="col-lg-8 content">
+                <img v-bind:src="logo" class="logotipo" width="25%">
+                <h1>{{ titulo }}</h1>
+        
+                <form v-on:submit="addTarea" class="form-control formulario">
+                    <input type="text" v-model="tarea.nombre" class="inputTextUser form-control form-control-success" placeholder="Write a Task">
+                    <input type="submit" value="Agregar tarea" class="btn btn-primary btn-lg">
+                    <button v-on:click="reiniciar()" class="btn btn-danger btn-lg">Borrar todo</button> 
+                </form><br>
+            </div>
+
+           <div class="col-lg-8  content">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Finalizada</th>
+                            <th>Nombre</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr v-for="i in tarea">
+                            <td><button v-on:click="completed(i)" class="btn btn-success">Completado</button></td>
+                            <td>{{ i.nombre }}</td>
+                            <td><button v-on:click="deleteTarea(i)" class="btn btn-warning">Borrar</button></td>
+                        </tr>
+                    </tbody>
+                   
+                </table>
+           </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script> <!-- CDN de Vue -->
+    <script src="main.js"></script>
+</body>
+</html>

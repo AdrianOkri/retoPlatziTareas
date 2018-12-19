@@ -1,0 +1,43 @@
+body {
+    background: black;
+    color: #85d733;
+}
+
+.content {
+    display: inline-block;
+}
+
+.formulario {
+    height: 100%;
+}
+
+.inputTextUser {
+    display: block;
+    margin: 20px; 
+    height: 100%;
+    width: 95%;
+    font-size: 20px;
+}
+
+.logotipo {
+    margin-top: 10%;
+    position: relative;
+    animation-name: logo-base;
+    animation-duration: 3.5S;
+    animation-iteration-count: infinite;
+}
+
+@keyframes logo-base {
+    0% {
+        opacity: 0;
+        transform: scale(.3) rotate(0deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1) rotate(720deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.3) rotate(0deg);
+    }
+}
